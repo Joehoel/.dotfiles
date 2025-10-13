@@ -1,0 +1,30 @@
+[user]
+	name = Joël Kuijper
+	email = jmkuijper@outlook.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICgU2ogv5IMuCYDKwOL7OAy24daHcTboA+a1iNfrgQ03
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
+[core]
+	pager = delta --dark
+	excludesfile = /Users/joel/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/joel/.stCommitMsg
+	gpgsign = true
+[init]
+	defaultBranch = master
+[credential]
+	helper = store
+[gpg]
+	format = ssh
+	program = gpg1
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
