@@ -7,7 +7,7 @@
 [pull]
 	rebase = false
 [core]
-	pager = delta --dark
+	pager = delta 
 	excludesfile = /Users/joel/.gitignore_global
 	autocrlf = input
 [difftool "sourcetree"]
