@@ -1,80 +1,78 @@
 # Dotfiles
 
-Configuratiebestanden voor macOS, beheerd met [GNU Stow](https://www.gnu.org/software/stow/).
+Configuration files for macOS, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-## Inhoud
+## Contents
 
-- `.config/nvim/` - Neovim configuratie (LazyVim)
-- `.config/gh/` - GitHub CLI configuratie
-- `.gitconfig` - Git configuratie
-- `Brewfile` - Homebrew packages, casks en VS Code extensies
+- `.config/nvim/` - Neovim configuration (LazyVim)
+- `.config/gh/` - GitHub CLI configuration
+- `.config/ghostty/` - Ghostty terminal configuration and themes
+- `.gitconfig` - Git configuration
+- `Brewfile` - Homebrew packages and casks
 
-## Installatie op een nieuwe Mac
+## Installation on a new Mac
 
-### 1. Installeer Homebrew
+### 1. Install Homebrew
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### 2. Clone deze repository
+### 2. Clone this repository
 
 ```bash
 git clone <repo-url> ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-### 3. Installeer packages via Brewfile
+### 3. Install packages via Brewfile
 
 ```bash
 brew bundle
 ```
 
-Dit installeert alle CLI tools, apps en VS Code extensies.
+This installs all CLI tools and apps.
 
-### 4. Installeer GNU Stow en maak symlinks
+### 4. Create symlinks with GNU Stow
 
-```bash
-brew install stow
-```
-
-Stow wordt meegeïnstalleerd via de Brewfile. Maak symlinks aan:
+Stow is installed via the Brewfile. Create symlinks:
 
 ```bash
 stow .
 ```
 
-Dit maakt symlinks aan in je home directory (`~`) voor alle bestanden en mappen.
+This creates symlinks in your home directory (`~`) for all files and folders.
 
-### 5. Verifieer de symlinks
+### 5. Verify the symlinks
 
 ```bash
 ls -la ~/.gitconfig
 ls -la ~/.config/nvim
 ls -la ~/.config/gh
+ls -la ~/.config/ghostty
 ```
 
-## Stow commando's
+## Stow commands
 
-| Commando | Beschrijving |
-|----------|--------------|
-| `stow .` | Symlinks aanmaken |
-| `stow -D .` | Symlinks verwijderen |
-| `stow -R .` | Symlinks opnieuw aanmaken (verwijderen + aanmaken) |
-| `stow -n .` | Dry-run (laat zien wat er zou gebeuren) |
+| Command | Description |
+|---------|-------------|
+| `stow .` | Create symlinks |
+| `stow -D .` | Remove symlinks |
+| `stow -R .` | Recreate symlinks (remove + create) |
+| `stow -n .` | Dry-run (show what would happen) |
 
-## Brewfile beheren
+## Brewfile management
 
-| Commando | Beschrijving |
-|----------|--------------|
-| `brew bundle` | Installeer alles uit Brewfile |
-| `brew bundle dump --force` | Exporteer huidige installatie naar Brewfile |
-| `brew bundle dump --describe` | Exporteer met beschrijvingen |
-| `brew bundle cleanup` | Verwijder packages die niet in Brewfile staan |
-| `brew bundle check` | Controleer of alles geïnstalleerd is |
+| Command | Description |
+|---------|-------------|
+| `brew bundle` | Install everything from Brewfile |
+| `brew bundle dump --force` | Export current installation to Brewfile |
+| `brew bundle dump --describe` | Export with descriptions |
+| `brew bundle cleanup` | Remove packages not in Brewfile |
+| `brew bundle check` | Check if everything is installed |
 
-## Opmerkingen
+## Notes
 
-- De `.stow-local-ignore` bevat patronen voor bestanden die genegeerd worden (zoals README, Brewfile, LICENSE, .git).
-- Bij conflicten: verwijder eerst bestaande bestanden voordat je `stow` uitvoert.
-- De git configuratie verwijst naar 1Password voor SSH signing - zorg dat dit geïnstalleerd is.
+- The `.stow-local-ignore` contains patterns for ignored files (like README, LICENSE, .git).
+- On conflicts: remove existing files before running `stow`.
+- The git configuration uses 1Password for SSH signing - make sure it's installed.
