@@ -1,32 +1,6 @@
-tap "adoptopenjdk/openjdk"
-tap "apple/apple"
-tap "blackmann/brew"
-tap "cloudflare/cloudflare"
-tap "facebook/fb"
-tap "gschurck/fuzzybrew"
-tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "infisical/get-cli"
-tap "lfaoro/tap"
-tap "libsql/sqld"
-tap "mongodb/brew"
-tap "nikitabobko/tap"
-tap "pkgxdev/made"
-tap "pulumi/tap"
-tap "railwayapp/railway"
-tap "railwayapp/tap"
-tap "roots/tap"
-tap "scarvalhojr/tap"
-tap "shivammathur/php"
-tap "stefanlogue/tools"
-tap "supabase/tap"
-tap "traildb/judy"
-tap "tursodatabase/tap"
 tap "tw93/tap"
-tap "wix/brew"
-# Search tool like grep, but optimized for programmers
-brew "ack"
 # Run your GitHub Actions locally
 brew "act"
 # Cryptography and SSL/TLS Toolkit
@@ -55,17 +29,14 @@ brew "git"
 brew "git-delta"
 # Quickly rewrite git repository history
 brew "git-filter-repo"
-# Statically typed language for the Erlang VM
-brew "gleam"
 # Render markdown on the CLI
 brew "glow"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
 # Handy way to save and run project-specific commands
 brew "just"
 # Simple terminal UI for git commands
 brew "lazygit"
-# Manipulate OpenType and multiple-master fonts
-brew "lcdf-typetools", link: false
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -78,19 +49,18 @@ brew "ninja"
 brew "ripgrep"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
-# Formatting technology for Swift source code
-brew "swift-format"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
 # JavaScript toolchain manager for reproducible environments
 brew "volta"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # Comprehensive macOS cleanup and application uninstall tool
 brew "tw93/tap/mole"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
-# View, print, and comment on PDF documents
 # Cut and paste files in Finder
 cask "command-x"
 # Database version management tool
@@ -127,4 +97,3 @@ cask "wakatime"
 cask "xcodes-app"
 # Multiplayer code editor
 cask "zed"
-cargo "zoxide"
