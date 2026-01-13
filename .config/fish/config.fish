@@ -50,3 +50,9 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# Expo development setup
+fish_add_path -gP /opt/homebrew/opt/ruby@3.3/bin
+fish_add_path -gP /opt/homebrew/lib/ruby/gems/3.3.0/bin
+set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+direnv hook fish | source
