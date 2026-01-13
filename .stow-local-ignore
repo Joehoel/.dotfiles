@@ -20,4 +20,5 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 \.DS_Store
+nvim\.lazyvim
 
