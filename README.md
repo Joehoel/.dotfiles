@@ -9,6 +9,7 @@ Configuration files for macOS, managed with [GNU Stow](https://www.gnu.org/softw
 - `.config/ghostty/` - Ghostty terminal configuration and themes
 - `.gitconfig` - Git configuration
 - `Brewfile` - Homebrew packages and casks
+- `macos.sh` - macOS system preferences
 
 ## Installation on a new Mac
 
@@ -43,7 +44,23 @@ stow .
 
 This creates symlinks in your home directory (`~`) for all files and folders.
 
-### 5. Verify the symlinks
+### 5. Apply macOS system preferences
+
+```bash
+./macos.sh
+```
+
+This configures:
+- **Dock**: Auto-hide, no animation, scale effect, hot corners
+- **Finder**: Show all files/extensions, list view, path bar, status bar
+- **Keyboard**: Fast key repeat, function keys as standard, disable autocorrect
+- **Trackpad**: Tap to click, three-finger drag, natural scrolling
+- **Screenshots**: Save to `~/Pictures/Screenshots` as JPG
+- **Menu bar clock**: 24-hour format, show day of week
+
+Some settings require logout or restart to take effect.
+
+### 6. Verify the symlinks
 
 ```bash
 ls -la ~/.gitconfig
@@ -70,6 +87,33 @@ ls -la ~/.config/ghostty
 | `brew bundle dump --describe` | Export with descriptions |
 | `brew bundle cleanup` | Remove packages not in Brewfile |
 | `brew bundle check` | Check if everything is installed |
+
+## macOS settings
+
+The `macos.sh` script uses the `defaults` command to configure system preferences. To capture your current settings for a specific domain:
+
+```bash
+# Read all settings from a domain
+defaults read com.apple.dock
+
+# Read a specific setting
+defaults read com.apple.dock autohide
+
+# Write a setting
+defaults write com.apple.dock autohide -bool true
+
+# Delete a setting (reset to default)
+defaults delete com.apple.dock autohide
+```
+
+Common domains:
+| Domain | Description |
+|--------|-------------|
+| `NSGlobalDomain` | Global settings (keyboard, appearance) |
+| `com.apple.dock` | Dock settings |
+| `com.apple.finder` | Finder settings |
+| `com.apple.screencapture` | Screenshot settings |
+| `com.apple.AppleMultitouchTrackpad` | Trackpad settings |
 
 ## Notes
 
